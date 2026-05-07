@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Item \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\Notebook_Experiments\\\\Data\\\\Airbnb_Data.csv\", \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\artifacts\\\\data.csv\", \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\artifacts\\\\train.csv\", \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\artifacts\\\\test.csv\" | Select-Object Name, @{N='Size_MB';E={[math]::Round\\($_.Length/1MB,2\\)}})"
+    ]
+  }
+}
