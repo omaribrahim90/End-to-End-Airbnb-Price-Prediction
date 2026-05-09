@@ -3,5 +3,7 @@ numpy
 seaborn
 matplotlib
 scikit-learn
+category_encoders
+dill
 
--e .
+#-e .

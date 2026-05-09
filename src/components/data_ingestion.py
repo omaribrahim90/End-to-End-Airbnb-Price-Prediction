@@ -18,7 +18,7 @@ class DataIngestionConfig:
 
 class DataIngestion:
     def __init__(self) :
-        self.ingestion_config = DataIngestionConfig() # we can new get access to the paths that we set above 
+        self.ingestion_config = DataIngestionConfig() # we can now get access to the paths that we set above 
 
     
     def initiate_data_ingestion(self): # this is the main method that will be called to start the data ingestion process
