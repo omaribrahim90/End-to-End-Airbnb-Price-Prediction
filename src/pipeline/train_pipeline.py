@@ -1,6 +1,6 @@
 import os
 import sys
-from src.exceptions import CustomException
+from src.exception import CustomException
 from src.logger import logging
 from src.utils import save_object
 
@@ -27,6 +27,18 @@ class TrainPipeline:
 
             # Data Transformation
             data_transformation = DataTransformation()
-            preprocessor_obj_file_path = data_transformation.get_data_transformer_object()
-            train_arr, test_arr, _ = data_transformation.
+            train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data_path, test_data_path)
+
+            # Model Training
+            model_trainer = ModelTrainer()
+            model_trainer.initiate_model_trainer(train_arr, test_arr)
+            logging.info("Training pipeline completed successfully.")
+        except Exception as e:
+            logging.error(f"Error occurred in training pipeline: {e}")
+            raise CustomException(e, sys)
+        
+if __name__=="__main__":
+    train_pipeline = TrainPipeline()
+    train_pipeline.run_pipeline()
+    
     

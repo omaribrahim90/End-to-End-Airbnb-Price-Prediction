@@ -49,6 +49,13 @@ class ModelTrainer:
 
             model_report: dict = evaluate_model(models, X_train, y_train, X_test, y_test)
 
+            logging.info("Model performance report (r2_score on test set):")
+            print("\n===== Model Performance Report (r2_score) =====")
+            for model_name, score in sorted(model_report.items(), key=lambda x: x[1], reverse=True):
+                logging.info(f"{model_name}: r2_score = {score}")
+                print(f"{model_name:<20} : {score:.4f}")
+            print("===============================================\n")
+
             best_model_name = max(model_report, key=model_report.get)
             best_model_score = model_report[best_model_name]
             best_model = models[best_model_name]

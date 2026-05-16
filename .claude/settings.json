@@ -13,7 +13,8 @@
       "PowerShell(& \"d:/Projects/End-to-End-Airbnb-Price-Prediction/venv/Scripts/python.exe\" -c \"import src.components.model_trainer; import src.components.data_transformation; import src.utils; print\\('All imports OK'\\)\")",
       "Bash(ls venv/Scripts)",
       "Bash(ls venv/bin)",
-      "Bash(./venv/python.exe -c \"import src.components.model_trainer; import src.components.data_transformation; import src.utils; print\\('All imports OK'\\)\")"
+      "Bash(./venv/python.exe -c \"import src.components.model_trainer; import src.components.data_transformation; import src.utils; print\\('All imports OK'\\)\")",
+      "Bash(python -c \"from src.logger import logging; logging.info\\('test log path'\\); from src.logger import LOG_FILE_PATH; print\\('LOG ->', LOG_FILE_PATH\\)\")"
     ]
   }
 }
