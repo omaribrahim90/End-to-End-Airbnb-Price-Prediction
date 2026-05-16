@@ -10,6 +10,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from category_encoders import TargetEncoder
 
+from src.components.data_ingestion import DataIngestion
 from src.exception import CustomException
 from src.logger import logging
 from src.utils import save_object
@@ -25,7 +26,7 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path=os.path.join('artifacts',"proprocessor.pkl")
+    preprocessor_obj_file_path: str = os.path.join('artifacts', "preprocessor.pkl")
 
 
 
@@ -36,7 +37,7 @@ class DataTransformation:
 
     def get_data_transformer_object(self):
         try :
-            logging.info("Data transformation initiated")
+            logging.info("Data  transformation initiated")
 
             numerical_col = [
                 "amenities", "accommodates", "bathrooms", "latitude", "longitude",
@@ -95,6 +96,9 @@ class DataTransformation:
             test_df = pd.read_csv(test_path)
             logging.info("Read train and test data completed")
 
+            train_df["amenities"] = train_df["amenities"].astype(str).map(len)
+            test_df["amenities"] = test_df["amenities"].astype(str).map(len)
+
             logging.info("Obtaining preprocessing object")
             preprocessing_obj = self.get_data_transformer_object()
 
@@ -124,3 +128,11 @@ class DataTransformation:
             )
         except Exception as e:
             raise CustomException(e, sys)
+        
+
+if __name__=="__main__":
+    obj=DataIngestion()
+    train_data,test_data=obj.initiate_data_ingestion()
+
+    data_transformation=DataTransformation()
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)

@@ -1,7 +1,19 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(Get-Item \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\Notebook_Experiments\\\\Data\\\\Airbnb_Data.csv\", \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\artifacts\\\\data.csv\", \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\artifacts\\\\train.csv\", \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\artifacts\\\\test.csv\" | Select-Object Name, @{N='Size_MB';E={[math]::Round\\($_.Length/1MB,2\\)}})"
+      "PowerShell(Get-Item \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\Notebook_Experiments\\\\Data\\\\Airbnb_Data.csv\", \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\artifacts\\\\data.csv\", \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\artifacts\\\\train.csv\", \"d:\\\\Projects\\\\End-to-End-Airbnb-Price-Prediction\\\\artifacts\\\\test.csv\" | Select-Object Name, @{N='Size_MB';E={[math]::Round\\($_.Length/1MB,2\\)}})",
+      "Bash(venv/Scripts/python.exe -m src.components.data_transformation)",
+      "PowerShell(.\\\\venv\\\\Scripts\\\\python.exe -m src.components.data_transformation)",
+      "Bash(venv/python.exe -m src.components.data_transformation)",
+      "Bash(python -c \"import src.components.model_trainer; import src.components.data_transformation; import src.utils; print\\('All imports OK'\\)\")",
+      "Bash(python -m py_compile src/components/model_trainer.py src/components/data_transformation.py src/utils.py)",
+      "Bash(ls -d venv env .venv)",
+      "Bash(python -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(./venv/Scripts/python.exe -c \"import src.components.model_trainer; import src.components.data_transformation; import src.utils; print\\('All imports OK'\\)\")",
+      "PowerShell(& \"d:/Projects/End-to-End-Airbnb-Price-Prediction/venv/Scripts/python.exe\" -c \"import src.components.model_trainer; import src.components.data_transformation; import src.utils; print\\('All imports OK'\\)\")",
+      "Bash(ls venv/Scripts)",
+      "Bash(ls venv/bin)",
+      "Bash(./venv/python.exe -c \"import src.components.model_trainer; import src.components.data_transformation; import src.utils; print\\('All imports OK'\\)\")"
     ]
   }
 }
